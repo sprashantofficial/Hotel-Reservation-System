@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add New Room in Hotel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Add New Room in Hotel</h1>
+        
+        <form id="myForm" th:action="@{'/hotels/add-room/' + ${hotelId}}" method="post" th:object="${room}">
+			<div class="form-group">
+                <label for="nameField">Name:</label>
+                <input type="hidden" class="form-control" id="roomId" placeholder="Enter your name">
+            </div>
+			<div class="form-group">
+				<label for="rooms">Select a room:</label> 
+                <select class="form-control" id="room" name="room">
+                    <option value="" selected>Select an option</option>
+                    <!-- Iterate over the list and generate options -->
+                    <option th:each="room : ${rooms}" th:value="${room.id}" th:text="${room.roomNumber}">Option</option>
+                </select>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Update Hotel</button>
+        </form>
+        
+        <a href="/hotels" class="btn btn-secondary mt-3">Cancel</a>
+    </div>
+    
+    <!-- Bootstrap JS (Optional, only if you need Bootstrap JavaScript features) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

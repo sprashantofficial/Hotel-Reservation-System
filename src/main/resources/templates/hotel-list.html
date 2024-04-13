@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container p-2">
+        <h1>Hotel List</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Address</th>
+                    <th>Rooms</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over the list of hotels and display each hotel -->
+                <tr th:each="hotel : ${hotels}">
+                    <td th:text="${hotel.name}">Hotel Name</td>
+                    <td th:text="${hotel.city}">City</td>
+                    <td th:text="${hotel.address}">Address</td>
+                    <td>
+                    	<a class="btn btn-success" th:href="@{/hotels/rooms/{id}(id=${hotel.id})}">Rooms List</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" th:href="@{/hotels/{id}(id=${hotel.id})}">View Details</a>
+                        <a class="btn btn-secondary" th:href="@{/hotels/edit/{id}(id=${hotel.id})}">Edit</a>
+                        <a class="btn btn-danger" th:href="@{/hotels/delete/{id}(id=${hotel.id})}" onclick="return confirm('Are you sure you want to delete this hotel?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-success" href="/hotels/new">Add New Hotel</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

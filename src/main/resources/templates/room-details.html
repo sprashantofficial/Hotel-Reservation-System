@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Room Details</h1>
+        <div class="card mx-auto" style="max-width: 400px;">
+            <div class="card-body">
+                <p class="card-text"><strong>Room Number:</strong> <span th:text="${room.roomNumber}">Room Number</span></p>
+                <p class="card-text"><strong>Capacity:</strong> <span th:text="${room.capacity}">Capacity</span></p>
+                <p class="card-text"><strong>Price Per Night:</strong> <span th:text="${room.pricePerNight}">Price Per Night</span></p>
+                <p class="card-text"><strong>Availability:</strong> <span th:text="${room.available ? 'Available' : 'Not Available'}">Availability</span></p>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/rooms" class="btn btn-primary">Back to Room List</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

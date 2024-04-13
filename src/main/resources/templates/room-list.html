@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Room List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Optional: Custom styles */
+        body {
+            padding: 20px;
+        }
+        .table-actions a {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Room List</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Room Number</th>
+                    <th>Capacity</th>
+                    <th>Price Per Night</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over the list of rooms and display each room -->
+                <tr th:each="room : ${rooms}">
+                    <td th:text="${room.roomNumber}">Room Number</td>
+                    <td th:text="${room.capacity}">Capacity</td>
+                    <td th:text="${room.pricePerNight}">Price Per Night</td>
+                    <td class="table-actions">
+                        <a class="btn btn-primary" th:href="@{/rooms/{id}(id=${room.id})}">View Details</a>
+                        <a class="btn btn-secondary" th:href="@{/rooms/edit/{id}(id=${room.id})}">Edit</a>
+                        <a class="btn btn-danger" th:href="@{/rooms/delete/{id}(id=${room.id})}" onclick="return confirm('Are you sure you want to delete this room?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-success" href="/rooms/new">Add New Room</a>
+    </div>
+    <!-- Bootstrap JS (optional, if required) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

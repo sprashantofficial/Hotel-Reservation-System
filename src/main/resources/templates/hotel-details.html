@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional style for spacing */
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Hotel Details</h1>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text"><strong>Name:</strong> <span th:text="${hotel.name}">Hotel Name</span></p>
+                <p class="card-text"><strong>City:</strong> <span th:text="${hotel.city}">City</span></p>
+                <p class="card-text"><strong>Address:</strong> <span th:text="${hotel.address}">Address</span></p>
+                <a href="/hotels" class="btn btn-primary">Back to Hotel List</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

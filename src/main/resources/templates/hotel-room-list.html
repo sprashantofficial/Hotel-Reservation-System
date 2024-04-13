@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Room List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container p-2">
+        <h1>Hotel Room List</h1>
+        <table class="table">
+            <thead class="thead-dark">
+				<tr>
+					<th>Room Number</th>
+					<th>Capacity</th>
+					<th>Price Per Night</th>
+				</tr>
+			</thead>
+            <tbody>
+                <!-- Iterate over the list of hotels and display each hotel -->
+                <tr th:each="room : ${roomList}">
+					<td th:text="${room.roomNumber}">Room Number</td>
+					<td th:text="${room.capacity}">Capacity</td>
+					<td th:text="${room.pricePerNight}">Price Per Night</td>
+				</tr>
+            </tbody>
+        </table>
+        <a class="btn btn-success" th:href="@{/hotels/new/room/{id}(id=${hotelId})}">Add New Room</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
